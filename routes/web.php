@@ -10,8 +10,8 @@ Route::get('/shop', function () {
     return view('/shoplist/index');
 });
 
-Route::get('/rols',[RolController::class,'index'])->name('rols.index');
-Route::post('/rols',[RolController::class,'store'])->name('rols.store');
-Route::delete('/rols/{id}',[RolController::class,'destroy'])->name('rols.destroy');
-Route::put('/rols/{id}',[RolController::class,'update'])->name('rols.update');
-Route::get('/rols_edit/{id}',[RolController::class,'edit'])->name('rols.edit');
+Route::get('/roles',[RolController::class,'index'])->name('roles.index');
+Route::post('/roles',[RolController::class,'store'])->name('roles.store');
+Route::delete('/roles/{id}',[RolController::class,'destroy'])->name('roles.destroy');
+Route::put('/roles/{id}',[RolController::class,'update'])->name('roles.update');
+Route::get('/roles_edit/{id}',[RolController::class,'edit'])->name('roles.edit');
