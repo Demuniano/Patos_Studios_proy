@@ -8,12 +8,15 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 
+     * @return void
      */
+    
     public function up(): void
     {
         Schema::create('rols', function (Blueprint $table) {
             $table->id();
-            $table->string('nameRol');
+            $table->string('name');
             $table->timestamps();
         });
     }
