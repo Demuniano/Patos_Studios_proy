@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,8 @@ Route::get('/', function () {
 Route::get('/shop', function () {
     return view('/shoplist/index');
 });
+Route::get('/products', [ProductsController::class,"index"])->name("products.index");
+Route::delete('/products/{id}', [ProductsController::class,"destroy"])->name("products.destroy");
+Route::get('/products.edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
+route::post('/products',[ProductsController::class,'store'])->name('products.store');
+route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
