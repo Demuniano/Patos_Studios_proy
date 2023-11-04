@@ -12,7 +12,7 @@
     <div class="container text-center">
         <div>
         <h1>Crear un Rol</h1>
-        <form action="{{route('rols.store')}}" method="post">
+        <form action="{{route('roles.store')}}" method="post">
             @csrf
             <label for="nameRol">Ingrese el nombre del Rol: </label>
             <input type="text" name="nameRol" id="nameRol" class="form-control mn-3" required >
@@ -31,13 +31,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($rols as $rol)
+                        @foreach($roles as $rol)
                         <tr>
                             <td>{{$rol->id}}</td>
                             <td>{{$rol->name}}</td>
                             <td>
-                                <a href="{{route('rols.edit', $rol->id)}}" class="btn btn-warning">Editar</a>
-                                <form action="{{route('rols.destroy', $rol->id)}}" method="post">
+                                <a href="{{route('roles.edit', $rol->id)}}" class="btn btn-warning">Editar</a>
+                                <form action="{{route('roles.destroy', $rol->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Eliminar</button>

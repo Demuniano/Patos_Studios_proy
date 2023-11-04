@@ -12,11 +12,11 @@
     <div class="container text-center">
         <div>
         <h1>Editar Roles</h1>
-        <form action="{{route('rols.update',$rol->id)}}" method="post">
+        <form action="{{route('roles.update',$role->id)}}" method="post">
             @csrf
             @method('PUT')
             <label for="name">Ingrese el nombre del Rol </label>
-            <input type="text" name="nameRol" id="name" class="form-control mn-3" required value="{{$rol->name}}">
+            <input type="text" name="nameRol" id="name" class="form-control mn-3" required value="{{$role->name}}">
             <button type="submit" class="btn btn-success mt-4">Actualizar</button>
         </form>
         </div>

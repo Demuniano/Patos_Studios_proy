@@ -10,8 +10,8 @@ class RolesController extends Controller
 
     public function index()
     {
-        $rols = Role::all();
-        return view('rols.crud_rols',compact('rols'));
+        $roles = Role::all();
+        return view('roles.index',compact('roles'));
     }
 
     public function create()
@@ -22,7 +22,7 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         $role = new Role();
-        $role->name = $request->nameRole;
+        $role->name = $request->nameRol;
         $role->save();
         return redirect()->route('roles.index');
     }
@@ -35,13 +35,13 @@ class RolesController extends Controller
     public function edit(string $id)
     {
         $role = Role::find($id);
-        return view('roles.editar_roles',compact('role'));
+        return view('roles.editar_rols',compact('role'));
     }
 
     public function update(Request $request, string $id)
     {
         $role = Role::find($id);
-        $role->name = $request->nameRole;
+        $role->name = $request->nameRol;
         $role->save();
         return redirect()->route('roles.index');
     }
