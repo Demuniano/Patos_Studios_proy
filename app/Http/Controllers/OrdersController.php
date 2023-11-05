@@ -4,30 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Product;
 
 
 class OrdersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $orders = Order::all();
-        return view('admin.info',compact('orders'));
+        $users = User::all();
+        $products = Product::all();
+        return view('admin.info',compact('orders','users','products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $order = new Order();
@@ -41,8 +36,10 @@ class OrdersController extends Controller
 
     public function edit(string $id)
     {
-        $order = Order::find($id);
-        return view('admin.info',compact('order'));
+        $orders = Order::find($id);
+        $users = User::all();
+        $products = Product::all();
+        return view('admin.info',compact('orders','users','products'));
     }
 
     public function update(Request $request, string $id)
