@@ -2,7 +2,8 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;use App\Http\Controllers\RolController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 
 Route::get('/', function () {
@@ -23,3 +24,9 @@ Route::get('/users_edit/{id}',[UsersController::class,'edit'])->name('users.edit
 route::post('/users',[UsersController::class,'store'])->name('users.store');
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 Route::put('/users/{id}',[UsersController::class,'update'])->name('users.update');
+
+Route::get('/products', [ProductsController::class,"index"])->name("products.index");
+Route::delete('/products/{id}', [ProductsController::class,"destroy"])->name("products.destroy");
+Route::get('/products.edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
+route::post('/products',[ProductsController::class,'store'])->name('products.store');
+route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
