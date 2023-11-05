@@ -31,7 +31,6 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         $order = new Order();
-        $order->name = $request->nombre;
         $order->user_id = $request->iduser;
         $order->product_id = $request->idproduct;
         $order->amount = $request->cantidad;
@@ -49,7 +48,6 @@ class OrdersController extends Controller
     public function update(Request $request, string $id)
     {
         $order = Order::find($id);
-        $order->name = $request->nombre;
         $order->user->name = $request->nameAuthor;
         $order->product->name = $request->nameAuthor;
         $order->amount = $request->cantidad;
