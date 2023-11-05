@@ -43,8 +43,8 @@
                     <tr>
                         <td>{{$user->name}}</td>
                         <td>{{$user->role->name}}</td>
-                        <td>{{$user->email}}</td>
                         <td>{{$user->address}}</td>
+                        <td>{{$user->email}}</td>
                         <td>
                             <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning">Editar</a>
                             <form action="{{route('users.destroy', $user->id)}}" method="post">
