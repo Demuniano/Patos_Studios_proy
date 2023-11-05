@@ -6,7 +6,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/homeStyles.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet"/>
-
+    <script src="{{ asset('js/scriptLayout.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
 </head>
 <body id="body-pd">
 <header class="header" id="header">
@@ -18,10 +19,10 @@
   </div>
   <div class="header_icons">
       <a href="usuario.html">
-          <img src="/img/perfil.png" alt="Icono de perfil" id="icono_perfil">
+          <img src="{{asset('/images/icons/perfil.png')}}" alt="Icono de perfil" id="icono_perfil">
       </a>
       <a href="shoplist.html">
-          <img src="/img/carrito.png" alt="Icono de carrito de compras" id="icono_carrito">
+          <img src="{{asset('/images/icons/carrito.png')}}" alt="Icono de carrito de compras" id="icono_carrito">
       </a>
   </div>
 </header>
@@ -31,7 +32,7 @@
     <nav class="nav">
       <div>
         <a href="index.html" class="nav_logo">
-          <img src="/img/d2.svg" alt="icono pato" id="duckIcon">
+          <img src="{{asset('/images/icons/d2.svg')}}" alt="icono pato" id="duckIcon">
           <span class="nav_logo-name">PatosVapes</span>
         </a>
         <div class="nav_list">
