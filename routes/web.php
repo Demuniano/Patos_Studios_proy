@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\ComentsController;
 
 Route::get('/', function () {
     return view('/home/home');
@@ -30,3 +31,9 @@ Route::delete('/products/{id}', [ProductsController::class,"destroy"])->name("pr
 Route::get('/products.edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 route::post('/products',[ProductsController::class,'store'])->name('products.store');
 route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
+
+Route::get('/coments', [ComentsController::class,"index"])->name("coments.index");
+Route::delete('/coments/{id}', [ComentsController::class,"destroy"])->name("coments.destroy");
+Route::get('/coments.edit/{id}', [ComentsController::class, 'edit'])->name('coments.edit');
+route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
+route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');

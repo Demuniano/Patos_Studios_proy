@@ -25,6 +25,7 @@
             <label for="flavorProduct">Sabor: </label>
             <input type="text" id="flavor"class="form-control mn-3" name="flavorProduct">
             <button type="submit" class="btn btn-success mt-4">Crear</button>
+            
         </form>
         </div>
 
