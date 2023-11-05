@@ -1,6 +1,4 @@
-<!DOCTYPE html>
 @extends('layout.template')
-
 @section('content')
 <html lang="en">
   <div class="container">
@@ -12,13 +10,13 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/imagenes/portada5.JPG" class="d-block w-100" alt="...">
+          <img src="{{asset('/images/socialMedia/portada5.JPG')}}" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="/imagenes/portada1.JPG" class="d-block w-100" alt="...">
+          <img src="{{asset('/images/socialMedia/portada1.JPG')}}" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="/imagenes/portada3.JPG" class="d-block w-100" alt="...">
+          <img src="{{asset('/images/socialMedia/portada3.JPG')}}" class="d-block w-100" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -38,7 +36,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                      <img src="/imagenes/vape6.jpeg" class="card-img-top" alt="">
+                      <img src="{{asset('/images/socialMedia/vape6.jpeg')}}" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Fruit Punch 2500 Puffs</h5>
                         <p class="card-text">Prueba la experiencia de nuestro vape frutal sabor a Ponche de frutas.</p>
@@ -49,7 +47,7 @@
         
                   <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                      <img src="/imagenes/vape3.jpeg" class="card-img-top" alt="">
+                      <img src="{{asset('/images/socialMedia/vape3.jpeg')}}" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Blue Razz Ice 2500 Puffs</h5>
                         <p class="card-text">Una experiencia refrescante y llena de sabor con el sabor de Mora azul helada.</p>
@@ -60,7 +58,7 @@
         
                   <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                      <img src="/imagenes/vape7.jpeg" class="card-img-top" alt="">
+                      <img src="{{asset('/images/socialMedia/vape7.jpeg')}}" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Rasperry Watermelon 2500 Puffs</h5>
                         <p class="card-text">Frambuesa sandia un sabor super delicioso para los amantes de las frutas.</p>
@@ -75,7 +73,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                      <img src="/imagenes/vape1.jpeg" class="card-img-top" alt="">
+                      <img src="{{asset('/images/socialMedia/vape1.jpeg')}}" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Coconut Crumble 2500 Puffs</h5>
                         <p class="card-text">A ti que te gusta estar relajado que mejor que estar nuestro sabor a Nube de Coco.</p>
@@ -86,7 +84,7 @@
 
                   <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                      <img src="/imagenes/vape5.jpeg" class="card-img-top" alt="">
+                      <img src="{{asset('/images/socialMedia/vape5.jpeg')}}" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Sour Apple Ice 2500 Puffs</h5>
                         <p class="card-text">Jugo de Manzana helado para ti que te gustan los sabores deliciosos una fruta resfrescantes.</p>
@@ -97,7 +95,7 @@
 
                   <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                      <img src="/imagenes/vape7.jpeg" class="card-img-top" alt="">
+                      <img src="{{asset('/images/socialMedia/vape7.jpeg')}}" class="card-img-top" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Rasperry Watermelon 2500 Puffs</h5>
                         <p class="card-text">Frambuesa sandia un sabor super delicioso para los amantes de las frutas.</p>
@@ -125,39 +123,36 @@
             </div>
         </div>
     </div>
-    
-
-
 
       <section class="about-services">
         <div class="servicios-cont">
           <div class="servicio">
-            <img src="/img_footer/box1.png" alt="">
+            <img src="{{asset('/images/footer/box1.png')}}" alt="">
             <h2>Recoge en tienda</h2>
           </div>
           <div class="servicio second">
-            <img src="/img_footer/brand.png" alt="">
+            <img src="{{asset('/images/footer/brand.png')}}" alt="">
             <h2>Gran variedad de marcas</h2>
           </div>          
           <div class="servicio">
-            <img src="/img_footer/truck.png" alt="">
+            <img src="{{asset('/images/footer/truck.png')}}" alt="">
             <h2>Métodos de entrega</h2>
           </div>
         </div>
       </section>
-
+  <div class="container">
       <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
                 <div class="red-social">
                     <a href="" class="fa fa-facebook">
-                      <img src="/imagenes/facebook.png" alt="Icono de facebook">
+                      <img src="{{asset('/images/socialMedia/facebook.png')}}" alt="Icono de facebook">
                     </a>
                     <a href="https://www.instagram.com/patosvapes/?hl=es" class="fa fa-instagram" target="_blank">
-                      <img src="/imagenes/insta1.png" alt="Icono de instagram">
+                      <img src="{{asset('/images/socialMedia/insta1.png')}}" alt="Icono de instagram">
                     </a>
                     <a href="http://wa.me/573227693393" class="fa fa-twitter" target="_blank">
-                      <img src="/imagenes/watsap.png" alt="Icono de watsap">
+                      <img src="{{asset('/images/socialMedia/watsap.png')}}" alt="Icono de watsap">
                     </a>
                 </div>
             </div>
@@ -175,8 +170,7 @@
           </div>
         </div>
     </footer>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="/script.js"></script>
+  </div>
 </body>
 </html>
 @endsection
