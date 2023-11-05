@@ -45,6 +45,7 @@
                             <th>Nombre del producto</th>
                             <th>Cantidad</th>
                             <th>Fecha</th>
+                            <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
