@@ -6,12 +6,20 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\DetailsController;
+
 
 Route::get('/',[OrdersController::class,'index'])->name('orders.index');
 Route::post('/orders',[OrdersController::class,'store'])->name('orders.store');
 Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('orders.destroy');
 Route::put('/orders/{id}',[OrdersController::class,'update'])->name('orders.update');
 Route::get('/orders_edit/{id}',[OrdersController::class,'edit'])->name('orders.edit');
+
+Route::get('/',[OrdersController::class,'index'])->name('details.index');
+Route::post('/orders',[OrdersController::class,'store'])->name('details.store');
+Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('details.destroy');
+Route::put('/orders/{id}',[OrdersController::class,'update'])->name('details.update');
+Route::get('/orders_edit/{id}',[OrdersController::class,'edit'])->name('details.edit');
 
 Route::get('/roles',[RolesController::class,'index'])->name('roles.index');
 Route::post('/roles',[RolesController::class,'store'])->name('roles.store');
