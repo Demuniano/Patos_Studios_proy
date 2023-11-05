@@ -18,8 +18,8 @@
     </div>
   </div>
   <div class="header_icons">
-      <a href="usuario.html">
-          <img src="{{asset('/images/icons/perfil.png')}}" alt="Icono de perfil" id="icono_perfil">
+      <a href="{{ route('profile.edit') }}">
+          <img src="{{ asset('/images/icons/perfil.png') }}" alt="Icono de perfil" id="icono_perfil">
       </a>
       <a href="shoplist.html">
           <img src="{{asset('/images/icons/carrito.png')}}" alt="Icono de carrito de compras" id="icono_carrito">
