@@ -70,7 +70,7 @@ Route::get('/products.edit/{id}', [ProductsController::class, 'edit'])->name('pr
 Route::post('/products',[ProductsController::class,'store'])->name('products.store');    
 Route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
 
-Route::get('/',[OrdersController::class,'index'])->name('orders.index');
+Route::get('/orders',[OrdersController::class,'index'])->name('orders.index');
 Route::post('/orders',[OrdersController::class,'store'])->name('orders.store');
 Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('orders.destroy');
 Route::put('/orders/{id}',[OrdersController::class,'update'])->name('orders.update');

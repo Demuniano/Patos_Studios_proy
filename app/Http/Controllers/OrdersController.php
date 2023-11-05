@@ -39,7 +39,7 @@ class OrdersController extends Controller
         $orders = Order::find($id);
         $users = User::all();
         $products = Product::all();
-        return view('admin.info',compact('orders','users','products'));
+        return view('admin.edit_info',compact('orders','users','products'));
     }
 
     public function update(Request $request, string $id)
