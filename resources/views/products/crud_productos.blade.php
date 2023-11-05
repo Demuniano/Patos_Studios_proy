@@ -12,7 +12,7 @@
     <div class="container text-center">
         <div>
         <h1>Crear producto</h1>
-        <form action="{{route('products.store')}}" method="post">
+        <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="name">Ingrese el nombre del producto: </label>
             <input type="text" name="nameProduct" id="name" class="form-control mn-3" required >
@@ -24,7 +24,10 @@
             <input type="text" id="description"class="form-control mn-3" name="descriptionProduct">
             <label for="flavorProduct">Sabor: </label>
             <input type="text" id="flavor"class="form-control mn-3" name="flavorProduct">
+            <label for="image">Imagen: </label>
+            <input type="file" name="image" id="image" class="form-control mn-3">
             <button type="submit" class="btn btn-success mt-4">Crear</button>
+            
         </form>
         </div>
 
@@ -38,6 +41,7 @@
                             <th>Precio</th>
                             <th>Descripcion</th>
                             <th>Sabor</th>
+                            <th>Imagen</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
@@ -49,6 +53,13 @@
                             <td>{{$product->price}}</td>
                             <td>{{$product->description}}</td>
                             <td>{{$product->flavor}}</td>
+                            <td>
+                                @if ($product->image)
+                                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" style="max-width: 100px; max-height: 100px;">
+                                @else
+                                    No image available
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{route('products.edit', $product->id)}}" class="btn btn-warning">Editar</a>
                                 <form action="{{route('products.destroy', $product->id)}}" method="post">
@@ -66,3 +77,4 @@
     </div>
 </body>
 </html>
+
