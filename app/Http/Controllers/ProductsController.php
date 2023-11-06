@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use App\Models\User;
+use App\Models\Coment;
 class ProductsController extends Controller
 {
     
@@ -38,7 +39,7 @@ class ProductsController extends Controller
 
     // Crea el producto con los datos y la ruta de la imagen
     $product = new Product();
-    $product->name = $request->input('nameProduct');
+    $product->name = $request->input('nameProduct');//
     $product->quantity = $request->input('quantityProduct');
     $product->price = $request->input('priceProduct');
     $product->description = $request->input('descriptionProduct');
@@ -65,7 +66,7 @@ class ProductsController extends Controller
         'priceProduct' => 'required',
         'descriptionProduct' => 'required',
         'flavorProduct' => 'required',
-        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Valida que la imagen sea válida y no supere 2MB
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048 ', // Valida que la imagen sea válida y no supere 2MB
     ]);
 
     // Busca el producto por ID
@@ -98,4 +99,11 @@ class ProductsController extends Controller
         $product->delete();
         return redirect()->route("products.index");
     }
+    public function show(string $id)
+    {
+        $product = Product::find($id);
+        $comments = Coment::where('idProduct', $id)->with('user')->get();
+        return view("products.descriProduct", compact("product", "comments"));
+    }
+    
 }

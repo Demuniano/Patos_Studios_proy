@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ComentsController;
+use App\Http\Controllers\UserCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,6 @@ use App\Http\Controllers\ComentsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,11 +31,6 @@ Route::middleware('auth')->group(function () {
 
    
 
-    Route::get('/coments', [ComentsController::class,"index"])->name("coments.index");
-    Route::delete('/coments/{id}', [ComentsController::class,"destroy"])->name("coments.destroy");
-    Route::get('/coments.edit/{id}', [ComentsController::class, 'edit'])->name('coments.edit');
-    Route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
-    Route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');
 
 });
 
@@ -69,6 +61,7 @@ Route::delete('/products/{id}', [ProductsController::class,"destroy"])->name("pr
 Route::get('/products.edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 Route::post('/products',[ProductsController::class,'store'])->name('products.store');    
 Route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
+Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
 
 Route::get('/orders',[OrdersController::class,'index'])->name('orders.index');
 Route::post('/orders',[OrdersController::class,'store'])->name('orders.store');
@@ -88,3 +81,12 @@ Route::delete('/products/{id}', [ProductsController::class,"destroy"])->name("pr
 Route::get('/products.edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 Route::post('/products',[ProductsController::class,'store'])->name('products.store');
 Route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
+
+Route::get('/coments', [ComentsController::class,"index"])->name("coments.index");
+Route::delete('/coments/{id}', [ComentsController::class,"destroy"])->name("coments.destroy");
+Route::get('/coments.edit/{id}', [ComentsController::class, 'edit'])->name('coments.edit');
+Route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
+Route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');
+
+Route::get('/comentsUser/{id}', [UserCommentController::class,"show"])->name("comentsUser.show");
+Route::post('/comentsUser',[UserCommentController::class,'store'])->name('comentsUser.store');
