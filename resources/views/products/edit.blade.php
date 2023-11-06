@@ -18,9 +18,9 @@
             <label for="name">Ingrese el nombre del producto: </label>
             <input type="text" name="nameProduct" id="name" class="form-control mn-3" required value="{{ $product->name }}">
             <label for="quantityProduct">Cantidad: </label>
-            <input type="text" name="quantityProduct" id="quantity" class="form-control mn-3" required value="{{ $product->quantity }}">
+            <input type="number" name="quantityProduct" id="quantity" class="form-control mn-3" required value="{{ $product->quantity }}">
             <label for="priceProduct">Precio: </label>
-            <input type="text" id="price" class="form-control mn-3" name="priceProduct" value="{{ $product->price }}">
+            <input type="number" id="price" class="form-control mn-3" name="priceProduct" value="{{ $product->price }}">
             <label for="descriptionProduct">Descripcion: </label>
             <input type="text" id="description" class="form-control mn-3" name="descriptionProduct" value="{{ $product->description }}">
             <label for="flavorProduct">Sabor: </label>
