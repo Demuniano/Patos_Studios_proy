@@ -1,4 +1,5 @@
 @extends("layout.template")
+<script src="{{ asset('js/validacion_rols.js') }}" defer></script>
 @section("content")
 <body>
     <h1>Roles</h1>

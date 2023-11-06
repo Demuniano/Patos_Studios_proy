@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     @extends("layout.template")
+    <script src="{{ asset('js/validacion_coments.js') }}" defer></script>
 <body>
 <h1>Comentarios</h1>
     <div class="container text-center">
