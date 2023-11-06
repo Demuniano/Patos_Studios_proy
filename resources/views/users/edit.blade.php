@@ -1,5 +1,6 @@
 @extends('layout.template')
 @section('content')
+<script src="{{ asset('js/validacion_users.js') }}" defer></script>
 <div class="container text-center">
         <div>
         <h1>Editar Usuario</h1>

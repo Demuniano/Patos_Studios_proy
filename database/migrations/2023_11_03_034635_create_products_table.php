@@ -4,12 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
@@ -20,13 +22,29 @@ return new class extends Migration
             $table->string('flavor');
             $table->timestamps();
         });
+
+        // Crear 5 productos de ejemplo
+        for ($i = 1; $i <= 5; $i++) {
+            DB::table('products')->insert([
+                'name' => "Producto $i",
+                'quantity' => 10,
+                'price' => 19.99, 
+                'description' => "Descripción del Producto $i",
+                'flavor' => "Sabor $i",
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('products');
     }
-};
+}
+

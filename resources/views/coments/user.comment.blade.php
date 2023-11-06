@@ -27,7 +27,7 @@
             <label for="descriptionComent">Description: </label>
             <input type="text" name="descriptionComent" id="description" class="form-control mn-3" required value="{{$coment->description}}">
             <label for="qualificationComent">Calificacion: </label>
-            <input type="text" id="qualification"class="form-control mn-3" name="qualificationComent" value="{{$coment->qualification}}">
+            <input type="number" id="qualification"class="form-control mn-3" name="qualificationComent" value="{{$coment->qualification}}">
             <button type="submit" class="btn btn-success mt-4">Actualizar</button>
         </form>
         </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     @extends("layout.template")
+    <script src="{{ asset('js/validacion_coments.js') }}" defer></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
             <label for="descriptionComent">Descripcion: </label>
             <input type="text" name="descriptionComent" id="description" class="form-control mn-3" required >
             <label for="qualificationComent">Calificacion: </label>
-            <input type="text" id="qualification"class="form-control mn-3" name="qualificationComent">
+            <input type="number" id="qualification"class="form-control mn-3" name="qualificationComent">
             <button type="submit" class="btn btn-success mt-4">Crear</button>
         </form>
         </div>
