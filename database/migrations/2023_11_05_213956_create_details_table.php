@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("order_id")->comment("Id de la orden");
             $table->foreign("order_id")->references("id")->on("orders");
+            $table->integer("cant")->comment("Cantidad de productos");
             $table->unsignedBigInteger("product_id")->comment("Id del producto");
             $table->foreign("product_id")->references("id")->on("products");
             $table->float("unitp")->comment("Precio de unidad");

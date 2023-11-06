@@ -15,9 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("user_id")->comment("Id del usuario");
             $table->foreign("user_id")->references("id")->on("users");
-            $table->unsignedBigInteger("product_id")->comment("Id del producto");
-            $table->foreign("product_id")->references("id")->on("products");
-            $table->integer("amount")->comment("Cantidad de vapes");
             $table->date("date")->comment("Fecha de la compra");
             $table->timestamps();
         });

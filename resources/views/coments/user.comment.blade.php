@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    @extends("layout.template")
+@extends('layout.template')
+@section('content')
 <body>
 <h1>Comentarios</h1>
     <div class="container text-center">
@@ -36,5 +35,4 @@
 
 
 </body>
-
-</html>
+@endsection
