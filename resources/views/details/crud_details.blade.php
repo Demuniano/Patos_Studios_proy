@@ -11,7 +11,7 @@
     <h1>Ordenes</h1>
     <div class="container text-center">
         <div>
-        <h1>Crear nueva orden</h1>
+        <h1>Detalles</h1>
         <form action="{{ route('details.store') }}" method="POST">
                 @csrf
                 <label for="idorder">Seleccion el id del pedido: </label>
@@ -28,10 +28,6 @@
                         <option value={{$product->id}}>{{$product->name}}</option>
                     @endforeach
                 </select>
-                <label for="cantidad">Ingrese el precio de unidad: </label>
-                <input type="text" name="cantidad" id="cantidad" class="form-control mb-3" required>
-                <label for="fecha">Ingrese el precio total : </label>
-                <input type="date" name="fecha" id="fecha" class="form-control mb-3" required>
                 <button type="submit" class="btn btn-success">Guardar</button>
             </form>
         </div>

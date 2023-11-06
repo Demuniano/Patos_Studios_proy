@@ -27,9 +27,9 @@ class DetailsController extends Controller
         $detail = new Order();
         $detail->order_id = $request->idorder;
         $detail->product_id = $request->idproduct;
-        $detail->cantidad = $request->preciouni;
-        $detail->unitp = $request->preciouni;
-        $detail->totalp = $request->precioto;
+        $detail->order->name = $request->cantidad;
+        $detail->product->price = $request->preciouni;
+        $detail->totalp = $request->cantidad * preciouni;
         $detail->save();
         return redirect()->route('details.index');
     }
