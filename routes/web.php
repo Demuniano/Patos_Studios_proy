@@ -54,11 +54,11 @@ Route::get('/shop', function () {
     return view('/shoplist/index');
 });
 
-Route::get('/',[OrdersController::class,'index'])->name('details.index');
-Route::post('/orders',[OrdersController::class,'store'])->name('details.store');
-Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('details.destroy');
-Route::put('/orders/{id}',[OrdersController::class,'update'])->name('details.update');
-Route::get('/orders_edit/{id}',[OrdersController::class,'edit'])->name('details.edit');
+Route::get('/details',[DetailsController::class,'index'])->name('details.index');
+Route::post('/details',[DetailsController::class,'store'])->name('details.store');
+Route::delete('/details/{id}',[DetailsController::class,'destroy'])->name('details.destroy');
+Route::put('/details/{id}',[DetailsController::class,'update'])->name('details.update');
+Route::get('/details_edit/{id}',[DetailsController::class,'edit'])->name('details.edit');
 
 Route::get('/roles',[RolesController::class,'index'])->name('roles.index');
 Route::post('/roles',[RolesController::class,'store'])->name('roles.store');

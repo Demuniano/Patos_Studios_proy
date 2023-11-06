@@ -3,62 +3,60 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\Detail;
 
 class DetailsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $details = Detail::all();
+        $orders = Order::all();
+        $products = Product::all();
+        return view('details.crud_details',compact('orders','details','products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $detail = new Order();
+        $detail->order_id = $request->idorder;
+        $detail->product_id = $request->idproduct;
+        $detail->cantidad = $request->preciouni;
+        $detail->unitp = $request->preciouni;
+        $detail->totalp = $request->precioto;
+        $detail->save();
+        return redirect()->route('details.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $details = Detail::find($id);
+        $orders = Order::all();
+        $products = Product::all();
+        return view('details.crud_details',compact('details','orders','products'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $order = Order::find($id);
+        $order->order->id = $request->idAuthor;
+        $order->product->name = $request->nameProduct;
+        $order->unitp = $request->preciouni;
+        $order->totalp = $request->precioto;
+        $order->save();
+        return redirect()->route('details.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $detail = Detail::find($id);
+        $detail->delete();
+        return redirect()->route('details.index');
     }
 }
