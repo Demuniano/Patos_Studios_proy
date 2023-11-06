@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Detail;
+use Termwind\Components\Dd;
 
 class DetailsController extends Controller
 {
@@ -24,12 +25,14 @@ class DetailsController extends Controller
 
     public function store(Request $request)
     {
-        $detail = new Order();
+        $detail = new Detail();
         $detail->order_id = $request->idorder;
         $detail->product_id = $request->idproduct;
-        $detail->cantidad = $request->preciouni;
-        $detail->unitp = $request->preciouni;
-        $detail->totalp = $request->precioto;
+        $detail->cant = $request->cantidad;
+        $valUni = Product::find($request->idproduct)->price;
+        $detail->unitp = $valUni;
+        $total = $valUni * $request->cantidad;
+        $detail->totalp = $total;
         $detail->save();
         return redirect()->route('details.index');
     }
@@ -39,17 +42,20 @@ class DetailsController extends Controller
         $details = Detail::find($id);
         $orders = Order::all();
         $products = Product::all();
-        return view('details.crud_details',compact('details','orders','products'));
+        return view('details.edit_details',compact('details','orders','products'));
     }
 
     public function update(Request $request, string $id)
     {
-        $order = Order::find($id);
-        $order->order->id = $request->idAuthor;
-        $order->product->name = $request->nameProduct;
-        $order->unitp = $request->preciouni;
-        $order->totalp = $request->precioto;
-        $order->save();
+        $detail = Detail::find($id);
+        $detail->order_id = $request->idorder;
+        $detail->product_id = $request->idproduct;
+        $detail->cant = $request->cantidad;
+        $valUni = Product::find($request->idproduct)->price;
+        $detail->unitp = $valUni;
+        $total = $valUni * $request->cantidad;
+        $detail->totalp = $total;
+        $detail->save();
         return redirect()->route('details.index');
     }
 

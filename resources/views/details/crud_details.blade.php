@@ -8,30 +8,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ordenes</h1>
+    <h1>Detalles pedido</h1>
     <div class="container text-center">
         <div>
-        <h1>Crear nueva orden</h1>
+        <h1>Crear detalle pedido</h1>
         <form action="{{ route('details.store') }}" method="POST">
                 @csrf
                 <label for="idorder">Seleccion el id del pedido: </label>
                 <select name="idorder" id="idorder" class="form-control mb-3" required>
                     <option>Seleccione el id</option>
                     @foreach ($orders as $order)
-                        <option value={{$order->id}}>{{$order->id}}</option>
+                        <option value='{{$order->id}}'>{{$order->id}}</option>
                     @endforeach
                 </select>
                 <label for="idproduct">Ingrese el producto: </label>
                 <select name="idproduct" id="idproduct" class="form-control mb-3" required>
                     <option>Seleccione un producto</option>
                     @foreach ($products as $product)
-                        <option value={{$product->id}}>{{$product->name}}</option>
+                        <option value='{{$product->id}}'>{{$product->name}}</option>
                     @endforeach
                 </select>
-                <label for="cantidad">Ingrese el precio de unidad: </label>
-                <input type="text" name="cantidad" id="cantidad" class="form-control mb-3" required>
-                <label for="fecha">Ingrese el precio total : </label>
-                <input type="date" name="fecha" id="fecha" class="form-control mb-3" required>
+                <label for="cantidad">Cantidad: </label>
+                <input type="number" name="cantidad" id="cantidad" class="form-control mb-3" required>
                 <button type="submit" class="btn btn-success">Guardar</button>
             </form>
         </div>
@@ -54,7 +52,7 @@
                         <tr>
                             <td>{{$detail->order->id}}</td>
                             <td>{{$detail->product->name}}</td>
-                            <td>{{$detail->product->amount}}</td>
+                            <td>{{$detail->cant}}</td>
                             <td>{{$detail->unitp}}</td>
                             <td>{{$detail->totalp}}</td>
                             <td>

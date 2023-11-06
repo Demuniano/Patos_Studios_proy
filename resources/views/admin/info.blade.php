@@ -18,18 +18,9 @@
                 <select name="iduser" id="iduser" class="form-control mb-3" required>
                     <option>Seleccione un cliente</option>
                     @foreach ($users as $user)
-                        <option value={{$user->id}}>{{$user->name}}</option>
+                        <option value='{{$user->id}}'>{{$user->name}}</option>
                     @endforeach
                 </select>
-                <label for="idproduct">Ingrese el producto: </label>
-                <select name="idproduct" id="idproduct" class="form-control mb-3" required>
-                    <option>Seleccione un producto</option>
-                    @foreach ($products as $product)
-                        <option value={{$product->id}}>{{$product->name}}</option>
-                    @endforeach
-                </select>
-                <label for="cantidad">Ingrese la cantidad: </label>
-                <input type="text" name="cantidad" id="cantidad" class="form-control mb-3" required>
                 <label for="fecha">Fecha del pedido: </label>
                 <input type="date" name="fecha" id="fecha" class="form-control mb-3" required>
                 <button type="submit" class="btn btn-success">Guardar</button>
@@ -42,8 +33,6 @@
                     <thead>
                         <tr>
                             <th>Nombre del cliente</th>
-                            <th>Nombre del producto</th>
-                            <th>Cantidad</th>
                             <th>Fecha</th>
                             <th>Opciones</th>
                         </tr>
@@ -52,8 +41,6 @@
                         @foreach($orders as $order)
                         <tr>
                             <td>{{$order->user->name}}</td>
-                            <td>{{$order->product->name}}</td>
-                            <td>{{$order->amount}}</td>
                             <td>{{$order->date}}</td>
                             <td>
                                 <a href="{{route('orders.edit', $order->id)}}" class="btn btn-warning">Editar</a>

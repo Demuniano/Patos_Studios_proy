@@ -17,22 +17,13 @@
                 @method('PUT')
                 <label for="iduser">Ingrese el cliente del pedido: </label>
                 <select name="iduser" id="iduser" class="form-control mb-3" required>
-                    <option>Seleccione un cliente</option>
+                    <option value="{{$order->user_id}}">{{$order->user->name}}</option>
                     @foreach ($users as $user)
-                        <option value={{$user->id}}>{{$user->name}}</option>
+                        <option value='{{$user->id}}'>{{$user->name}}</option>
                     @endforeach
                 </select>
-                <label for="idproduct">Ingrese el producto: </label>
-                <select name="idproduct" id="idproduct" class="form-control mb-3" required>
-                    <option>Seleccione un producto</option>
-                    @foreach ($products as $product)
-                        <option value={{$product->id}}>{{$product->name}}</option>
-                    @endforeach
-                </select>
-                <label for="cantidad">Ingrese la cantidad: </label>
-                <input type="text" name="cantidad" id="cantidad" class="form-control mb-3" required>
                 <label for="fecha">Fecha del pedido: </label>
-                <input type="date" name="fecha" id="fecha" class="form-control mb-3" required>
+                <input type="date" name="fecha" id="fecha" class="form-control mb-3" value="{{$order->date}}" required>
                 <button type="submit" class="btn btn-success">Guardar</button>
             </form>
         </div>
