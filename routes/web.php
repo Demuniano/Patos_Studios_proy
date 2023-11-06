@@ -6,6 +6,8 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\DetailsController;
+
 use App\Http\Controllers\ComentsController;
 use App\Http\Controllers\UserCommentController;
 
@@ -44,6 +46,13 @@ Route::get('/shop', function () {
     return view('/shoplist/index');
 });
 
+
+Route::get('/details',[DetailsController::class,'index'])->name('details.index');
+Route::post('/details',[DetailsController::class,'store'])->name('details.store');
+Route::delete('/details/{id}',[DetailsController::class,'destroy'])->name('details.destroy');
+Route::put('/details/{id}',[DetailsController::class,'update'])->name('details.update');
+Route::get('/details_edit/{id}',[DetailsController::class,'edit'])->name('details.edit');
+
 Route::get('/roles',[RolesController::class,'index'])->name('roles.index');
 Route::post('/roles',[RolesController::class,'store'])->name('roles.store');
 Route::delete('/roles/{id}',[RolesController::class,'destroy'])->name('roles.destroy');
@@ -75,6 +84,7 @@ Route::get('/users_edit/{id}',[UsersController::class,'edit'])->name('users.edit
 route::post('/users',[UsersController::class,'store'])->name('users.store');
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 Route::put('/users/{id}',[UsersController::class,'update'])->name('users.update');
+
 
 Route::get('/products', [ProductsController::class,"index"])->name("products.index");
 Route::delete('/products/{id}', [ProductsController::class,"destroy"])->name("products.destroy");

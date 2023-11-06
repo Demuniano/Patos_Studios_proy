@@ -14,8 +14,7 @@ class OrdersController extends Controller
     {
         $orders = Order::all();
         $users = User::all();
-        $products = Product::all();
-        return view('admin.info',compact('orders','users','products'));
+        return view('admin.info',compact('orders','users'));
     }
 
     public function create()
@@ -27,8 +26,6 @@ class OrdersController extends Controller
     {
         $order = new Order();
         $order->user_id = $request->iduser;
-        $order->product_id = $request->idproduct;
-        $order->amount = $request->cantidad;
         $order->date = $request->fecha;
         $order->save();
         return redirect()->route('orders.index');
@@ -36,18 +33,15 @@ class OrdersController extends Controller
 
     public function edit(string $id)
     {
-        $orders = Order::find($id);
+        $order = Order::find($id);
         $users = User::all();
-        $products = Product::all();
-        return view('admin.edit_info',compact('orders','users','products'));
+        return view('admin.edit_info',compact('order','users'));
     }
 
     public function update(Request $request, string $id)
     {
         $order = Order::find($id);
-        $order->user->name = $request->nameAuthor;
-        $order->product->name = $request->nameAuthor;
-        $order->amount = $request->cantidad;
+        $order->user_id = $request->iduser;
         $order->date = $request->fecha;
         $order->save();
         return redirect()->route('orders.index');
