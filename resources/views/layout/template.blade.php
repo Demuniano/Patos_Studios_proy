@@ -14,14 +14,14 @@
   <div class="header_toggle">
     <div id="nav_Title">
       <i class="bx bx-menu" id="header-toggle"></i>
-      <a href="index.html" id="Title"><span >Patos Vapes Store</span></a>
+      <a href="{{ url('/') }}" id="Title"><span >Patos Vapes Store</span></a>
     </div>
   </div>
   <div class="header_icons">
       <a href="{{ route('profile.edit') }}">
           <img src="{{ asset('/images/icons/perfil.png') }}" alt="Icono de perfil" id="icono_perfil">
       </a>
-      <a href="shoplist.html">
+      <a href="">
           <img src="{{asset('/images/icons/carrito.png')}}" alt="Icono de carrito de compras" id="icono_carrito">
       </a>
   </div>
@@ -31,7 +31,7 @@
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
-        <a href="index.html" class="nav_logo">
+        <a href="{{ url('/') }}" class="nav_logo">
           <img src="{{asset('/images/icons/d2.svg')}}" alt="icono pato" id="duckIcon">
           <span class="nav_logo-name">PatosVapes</span>
         </a>
@@ -55,14 +55,18 @@
         </div>
       </div>
       <div>
-          <a href="login1.html" class="nav_link">
+      <a href="{{ route('profile.edit') }}" class="nav_link">
         <i class="bx bx-log-in nav_icon"></i>
         <span class="nav_name">LogIn</span>
       </a>
-      <a href="#" class="nav_link">
+      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav_link">
         <i class="bx bx-log-out nav_icon"></i>
         <span class="nav_name">SignOut</span>
       </a>
+      
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form>
     </div>
     </nav>
   </div>

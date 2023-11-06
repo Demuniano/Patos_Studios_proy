@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Role;
 class UsersController extends Controller
 {
-
+    
     public function index()
     {
         $users = User::all();

@@ -145,7 +145,7 @@
         <div class="grupo-1">
             <div class="box">
                 <div class="red-social">
-                    <a href="" class="fa fa-facebook">
+                    <a href="https://www.facebook.com/profile.php?id=100092607999343" class="fa fa-facebook" target="_blank">
                       <img src="{{asset('/images/socialMedia/facebook.png')}}" alt="Icono de facebook">
                     </a>
                     <a href="https://www.instagram.com/patosvapes/?hl=es" class="fa fa-instagram" target="_blank">

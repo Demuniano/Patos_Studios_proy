@@ -21,10 +21,6 @@ use App\Http\Controllers\ComentsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -53,6 +49,7 @@ Route::get('/', function () {
 Route::get('/shop', function () {
     return view('/shoplist/index');
 });
+
 
 Route::get('/details',[DetailsController::class,'index'])->name('details.index');
 Route::post('/details',[DetailsController::class,'store'])->name('details.store');
@@ -90,6 +87,7 @@ Route::get('/users_edit/{id}',[UsersController::class,'edit'])->name('users.edit
 route::post('/users',[UsersController::class,'store'])->name('users.store');
 Route::delete('/users/{id}',[UsersController::class,'destroy'])->name('users.destroy');
 Route::put('/users/{id}',[UsersController::class,'update'])->name('users.update');
+
 
 Route::get('/products', [ProductsController::class,"index"])->name("products.index");
 Route::delete('/products/{id}', [ProductsController::class,"destroy"])->name("products.destroy");
