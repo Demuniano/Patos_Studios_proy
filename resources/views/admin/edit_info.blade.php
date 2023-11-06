@@ -12,8 +12,9 @@
     <div class="container text-center">
         <div>
         <h1>Editar pedidos</h1>
-        <form action="{{ route('orders.store') }}" method="POST">
+        <form action="{{ route('orders.update', $order->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <label for="iduser">Ingrese el cliente del pedido: </label>
                 <select name="iduser" id="iduser" class="form-control mb-3" required>
                     <option>Seleccione un cliente</option>

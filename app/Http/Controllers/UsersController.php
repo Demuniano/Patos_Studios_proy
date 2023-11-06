@@ -40,17 +40,11 @@ class UsersController extends Controller
         return redirect()->route('users.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $user = User::find($id);
@@ -58,9 +52,6 @@ class UsersController extends Controller
         return view('users.edit',compact('user','roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request,$id)
     {
         $user = User::find($id);
@@ -73,9 +64,6 @@ class UsersController extends Controller
         return redirect()->route('users.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $user = User::find($id);

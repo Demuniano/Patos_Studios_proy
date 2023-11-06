@@ -36,17 +36,17 @@ class OrdersController extends Controller
 
     public function edit(string $id)
     {
-        $orders = Order::find($id);
+        $order = Order::find($id);
         $users = User::all();
         $products = Product::all();
-        return view('admin.edit_info',compact('orders','users','products'));
+        return view('admin.edit_info',compact('order','users','products'));
     }
 
     public function update(Request $request, string $id)
     {
         $order = Order::find($id);
-        $order->user->name = $request->nameAuthor;
-        $order->product->name = $request->nameAuthor;
+        $order->user_id = $request->iduser;
+        $order->product_id = $request->idproduct;
         $order->amount = $request->cantidad;
         $order->date = $request->fecha;
         $order->save();
