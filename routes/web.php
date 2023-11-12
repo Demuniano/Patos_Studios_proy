@@ -31,13 +31,27 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
     Route::get('/details',[DetailsController::class,'index'])->name('details.index');
     Route::post('/details',[DetailsController::class,'store'])->name('details.store');
     Route::delete('/details/{id}',[DetailsController::class,'destroy'])->name('details.destroy');
     Route::put('/details/{id}',[DetailsController::class,'update'])->name('details.update');
     Route::get('/details_edit/{id}',[DetailsController::class,'edit'])->name('details.edit');
 
+    Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
+
+    Route::get('/orders',[OrdersController::class,'index'])->name('orders.index');
+    Route::post('/orders',[OrdersController::class,'store'])->name('orders.store');
+    Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('orders.destroy');
+    Route::put('/orders/{id}',[OrdersController::class,'update'])->name('orders.update');
+    Route::get('/orders_edit/{id}',[OrdersController::class,'edit'])->name('orders.edit');
+
+    Route::get('/comentsUser/{id}', [UserCommentController::class,"show"])->name("comentsUser.show");
+    Route::post('/comentsUser',[UserCommentController::class,'store'])->name('comentsUser.store');
+   
+
+
+});
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/roles',[RolesController::class,'index'])->name('roles.index');
     Route::post('/roles',[RolesController::class,'store'])->name('roles.store');
     Route::delete('/roles/{id}',[RolesController::class,'destroy'])->name('roles.destroy');
@@ -57,23 +71,11 @@ Route::middleware('auth')->group(function () {
     Route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
     Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
 
-    Route::get('/orders',[OrdersController::class,'index'])->name('orders.index');
-    Route::post('/orders',[OrdersController::class,'store'])->name('orders.store');
-    Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('orders.destroy');
-    Route::put('/orders/{id}',[OrdersController::class,'update'])->name('orders.update');
-    Route::get('/orders_edit/{id}',[OrdersController::class,'edit'])->name('orders.edit');
-
     Route::get('/coments', [ComentsController::class,"index"])->name("coments.index");
     Route::delete('/coments/{id}', [ComentsController::class,"destroy"])->name("coments.destroy");
     Route::get('/coments.edit/{id}', [ComentsController::class, 'edit'])->name('coments.edit');
     Route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
     Route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');
-
-    Route::get('/comentsUser/{id}', [UserCommentController::class,"show"])->name("comentsUser.show");
-    Route::post('/comentsUser',[UserCommentController::class,'store'])->name('comentsUser.store');
-   
-
-
 });
 
 require __DIR__.'/auth.php';
