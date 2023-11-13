@@ -29,96 +29,46 @@
       </button>
     </div>
     
-      <div class="container">
-          <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{{asset('/images/socialMedia/vape6.jpeg')}}" class="card-img-top" alt="">
-                      <div class="card-body">
-                        <h5 class="card-title">Fruit Punch 2500 Puffs</h5>
-                        <p class="card-text">Prueba la experiencia de nuestro vape frutal sabor a Ponche de frutas.</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
+    <div class="container">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+      @foreach ($products->chunk(3) as $index => $productChunk)
+          <div class="carousel-item{{ $index === 0 ? ' active' : '' }}">
+              <div class="row">
+                  @foreach ($productChunk as $product)
+                      <div class="col-md-4">
+                          <div class="card" style="width: 18rem;">
+                              @if ($product->image)
+                              <a href="{{route('products.show', $product->id)}}"><img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid"></a>
+                                  
+                              @else
+                                  No image available
+                              @endif
+                              <div class="card-body">
+                                  <h5 class="card-title">{{ $product->name }}</h5>
+                                  <p class="card-text">{{ $product->description }}</p>
+                                  <a href="{{route('products.show', $product->id)}}" class="btn btn-primary">Ver detalles</a>
+                              </div>
+                          </div>
                       </div>
-                    </div>
-                  </div>
-        
-                  <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{{asset('/images/socialMedia/vape3.jpeg')}}" class="card-img-top" alt="">
-                      <div class="card-body">
-                        <h5 class="card-title">Blue Razz Ice 2500 Puffs</h5>
-                        <p class="card-text">Una experiencia refrescante y llena de sabor con el sabor de Mora azul helada.</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{{asset('/images/socialMedia/vape7.jpeg')}}" class="card-img-top" alt="">
-                      <div class="card-body">
-                        <h5 class="card-title">Rasperry Watermelon 2500 Puffs</h5>
-                        <p class="card-text">Frambuesa sandia un sabor super delicioso para los amantes de las frutas.</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  @endforeach
               </div>
-        
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{{asset('/images/socialMedia/vape1.jpeg')}}" class="card-img-top" alt="">
-                      <div class="card-body">
-                        <h5 class="card-title">Coconut Crumble 2500 Puffs</h5>
-                        <p class="card-text">A ti que te gusta estar relajado que mejor que estar nuestro sabor a Nube de Coco.</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{{asset('/images/socialMedia/vape5.jpeg')}}" class="card-img-top" alt="">
-                      <div class="card-body">
-                        <h5 class="card-title">Sour Apple Ice 2500 Puffs</h5>
-                        <p class="card-text">Jugo de Manzana helado para ti que te gustan los sabores deliciosos una fruta resfrescantes.</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{{asset('/images/socialMedia/vape7.jpeg')}}" class="card-img-top" alt="">
-                      <div class="card-body">
-                        <h5 class="card-title">Rasperry Watermelon 2500 Puffs</h5>
-                        <p class="card-text">Frambuesa sandia un sabor super delicioso para los amantes de las frutas.</p>
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            
-            
-            <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Siguiente</span>
-            </a>
           </div>
-        </div>
+      @endforeach
+  </div>
+
+        
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </a>
+    </div>
+</div>
+
       
             </div>
         </div>

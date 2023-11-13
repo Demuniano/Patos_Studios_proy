@@ -14,7 +14,7 @@ class OrdersController extends Controller
     {
         $orders = Order::all();
         $users = User::all();
-        return view('admin.info',compact('orders','users'));
+        return view('order.info',compact('orders','users'));
     }
 
     public function create()
@@ -35,7 +35,7 @@ class OrdersController extends Controller
     {
         $order = Order::find($id);
         $users = User::all();
-        return view('admin.edit_info',compact('order','users'));
+        return view('order.edit_info',compact('order','users'));
     }
 
     public function update(Request $request, string $id)

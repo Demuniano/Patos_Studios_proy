@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Coment;
+use App\Models\CartItem;
+
+use function Laravel\Prompts\alert;
+
 class ProductsController extends Controller
 {
     
@@ -104,6 +108,39 @@ class ProductsController extends Controller
         $product = Product::find($id);
         $comments = Coment::where('idProduct', $id)->with('user')->get();
         return view("products.descriProduct", compact("product", "comments"));
+    }
+
+    
+    public function addToCart(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        // Verifica si el producto existe
+        if (!$product) {
+            return redirect()->route('products.index')->with('error', 'Product not found.');
+        }
+
+        // Obtiene la cantidad del formulario
+        $quantity = $request->input('quantity', 1);
+
+        // Valida que la cantidad sea válida
+        if (!is_numeric($quantity) || $quantity < 1 || $quantity > 50) {
+            return redirect()->route('products.index')->with('error', 'Invalid quantity.');
+        }
+
+        // Crea o actualiza el elemento del carrito en la base de datos
+        CartItem::updateOrCreate(
+            [
+                'product_id' => $id,
+                'user_id' => auth()->id(), // Ajusta según tus necesidades de autenticación
+            ],
+            [
+                'quantity' => $quantity,
+            ]
+        );
+
+        // Redirige al usuario a la página del carrito (ajusta según tus rutas)
+        return redirect()->route('dashboard')->with('success', 'Product added to cart successfully!');
     }
     
 }
