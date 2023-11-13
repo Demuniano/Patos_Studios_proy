@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Product;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrdersController extends Controller
 {
@@ -16,6 +16,13 @@ class OrdersController extends Controller
         $users = User::all();
         return view('admin.info',compact('orders','users'));
     }
+
+    public function pdf(){
+        $orders = Order::all();
+        $pdf = Pdf::loadView('admin.pdf', compact('orders'));
+        return $pdf->download('invoice.pdf');
+    }
+
 
     public function create()
     {

@@ -81,13 +81,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-
+Route::get('/orders/pdf',[OrdersController::class,'pdf'])->name('orders.pdf');
 Route::get('/', function () {
     return view('/home/home');
 });
 Route::get('/shop', function () {
     return view('/shoplist/index');
 });
+
 
 
 
