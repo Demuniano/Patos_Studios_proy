@@ -22,19 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('flavor');
             $table->timestamps();
         });
-
-        // Crear 5 productos de ejemplo
-        for ($i = 1; $i <= 5; $i++) {
-            DB::table('products')->insert([
-                'name' => "Producto $i",
-                'quantity' => 10,
-                'price' => 19.99, 
-                'description' => "Descripción del Producto $i",
-                'flavor' => "Sabor $i",
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
+        
     }
 
     /**

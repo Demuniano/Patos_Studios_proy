@@ -24,6 +24,7 @@
                 <label for="fecha">Fecha del pedido: </label>
                 <input type="date" name="fecha" id="fecha" class="form-control mb-3" required>
                 <button type="submit" class="btn btn-success">Guardar</button>
+                <a href="{{route('orders.pdf')}}" class="btn btn-danger">PDF</a>
             </form>
         </div>
 
@@ -54,6 +55,7 @@
                         @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>

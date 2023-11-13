@@ -1,4 +1,5 @@
 @extends('layout.template')
+<script src="{{ asset('js/validacion_details.js') }}" defer></script>
 <h1>Detalles pedido</h1>
     <div class="container text-center">
         <div>
