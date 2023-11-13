@@ -145,13 +145,13 @@
         <div class="grupo-1">
             <div class="box container">
                 <div class="red-social">
-                    <a href="https://www.facebook.com/profile.php?id=100092607999343" class="fa fa-facebook" target="_blank">
+                    <a href="https://www.facebook.com/profile.php?id=100092607999343" class="fa fa-facebook ms-3 mt-2" target="_blank">
                       <img src="{{asset('/images/socialMedia/facebook.png')}}" alt="Icono de facebook">
                     </a>
-                    <a href="https://www.instagram.com/patosvapes/?hl=es" class="fa fa-instagram" target="_blank">
+                    <a href="https://www.instagram.com/patosvapes/?hl=es" class="fa fa-instagram ms-3 mt-2" target="_blank">
                       <img src="{{asset('/images/socialMedia/insta1.png')}}" alt="Icono de instagram">
                     </a>
-                    <a href="http://wa.me/573227693393" class="fa fa-twitter" target="_blank">
+                    <a href="http://wa.me/573227693393" class="fa fa-twitter ms-3 mt-2" target="_blank">
                       <img src="{{asset('/images/socialMedia/watsap.png')}}" alt="Icono de watsap">
                     </a>
                 </div>
