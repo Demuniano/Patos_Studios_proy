@@ -163,7 +163,7 @@
                 <p>3107894905</p>
                 <p>8907658</p>
             </div>
-            <div class="box">
+            <div class="box3">
               <p>&copy; Copyright 2023.</p>
               <p>Algunos derechos reservados.</p>
               <p>Actualizacion: 24/09/2023</p>

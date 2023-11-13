@@ -195,7 +195,7 @@ a {
   }
 
   .body-pd {
-    padding-left: calc(var(--nav-width) + 188px);
+    padding-left: calc(var(--nav-width) + 155px);
   }
 }
 #icono_perfil{
@@ -416,9 +416,6 @@ right: 0;
 }
 /*SERVICIOS*/
 
-
-
-
 /* Estilos para las secciones */
 h1 {
   font-size: 24px;
@@ -485,8 +482,6 @@ table tr {
 height: 70px;
 }
 
-
-
 /* Estilos para los botones */
 .btn {
   padding: 8px 12px;
@@ -506,11 +501,6 @@ height: 70px;
   border: none;
 }
 
-
-
-
-
-
 /* Estilos para las columnas */
 .col-md-4 {
   width: 33.33%;
@@ -521,8 +511,6 @@ height: 70px;
   width: 66.66%;
   float: left;
 }
-
-
 
 .inf {
 text-align: center; 
@@ -605,6 +593,9 @@ body .container-fluid2 {
 
 .red-social {
   padding-left: 68px;  
+}
+.box3{
+  margin-left: 0; 
 }
 /* body .container {
   margin-right: 0;
