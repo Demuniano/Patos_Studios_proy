@@ -19,7 +19,7 @@ class OrdersController extends Controller
 
     public function pdf(){
         $orders = Order::all();
-        $pdf = Pdf::loadView('admin.pdf', compact('orders'));
+        $pdf = Pdf::loadView('order.pdf', compact('orders'));
         return $pdf->download('invoice.pdf');
     }
 

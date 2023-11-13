@@ -74,27 +74,19 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-<<<<<<< HEAD
 Route::get('/orders/pdf',[OrdersController::class,'pdf'])->name('orders.pdf');
 Route::get('/', function () {
     return view('/home/home');
 });
-=======
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
->>>>>>> e00e2e8449ecd5affcc992f56292dfd0e4cc8ffc
 Route::get('/shop', function () {
     return view('/shoplist/index');
 });
 Route::get('/shoplist', [CartController::class, 'index'])->name('cart.index');
 
 
-<<<<<<< HEAD
-
-
-=======
 Route::post('/add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
 Route::put('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');    
->>>>>>> e00e2e8449ecd5affcc992f56292dfd0e4cc8ffc
