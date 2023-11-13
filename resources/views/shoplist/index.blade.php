@@ -1,126 +1,58 @@
 @extends('layout.template') 
 
 @section('content')
-
+<script src="{{asset('js/edit_Shoplist.js')}}"></script>
 <div class="container">
     <div class="text-center mb-5">
       <h3>Carrito de compras</h3>
     </div>
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="d-flex flex-column flex-lg-row">
-                <div class="row flex-fill">
-                    <div class="col-sm-1"> 
-                        <img class="img-fluid" src="/imagenes/vape1.jpeg" alt="Imagen 1">
-                    </div>
-                    <div class="col-sm-3">
-                        <h4 class="h5">Hyde Coconout Crumble</h4>
-                    </div>
-                    <div class="col-sm-2 py-2">
-                        <span class="badge bg-secondary">2500 puffs</span>
-                        <span class="badge bg-secondary">Sabor a coco</span>
-                    </div>
-                    <div class="col-sm-3 py-2">
-                      <div class="input-group">
-                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" onclick="decrementValue(1)">-</button>
-                        </span>
-                        <input type="number" class="form-control" id="numberInput1" value="1" min="1">
-                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" onclick="incrementValue(1)">+</button>
-                        </span>
-                      </div>
-                      <label for="" class="labelprecio">Precio: $ 30.000</label>
-                    </div>
-                      <div class="col-sm-3">
-                        <div>
-                            <input class="form-check-input custom-checkbox" type="checkbox" value="" aria-label="...">
-                        </div>
-                    </div>
-            </div>
-        </div>
+    <div class="row">
+    <div class="col">
+        <table class="table table-dark table-sm mt-4 mx-auto table-responsive">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>SubTotal</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($cartItems as $item)
+                <tr>
+                    <td>
+                        @if ($item->product->image)
+                            <img src="{{ asset('images/' . $item->product->image) }}" alt="{{ $item->product->name }}" class="img-fluid ms-4" width="150">
+                        @else
+                            No image available
+                        @endif
+                    </td>
+                    <td>{{$item->product->name}}</td>
+                    <td>
+                        <form action="{{ route('cart.update', ['id' => $item->id]) }}" method="post">
+                            @csrf
+                            @method('put')
+                            <input type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="50">
+                            <button type="submit" class="btn btn-primary btn-sm">Actualizar</button>
+                        </form>
+                    </td>
+                    <td>{{$item->product->price}}</td>
+                    <td>{{$item->product->price * $item->quantity}}</td>
+                    <td>
+                        <form action="{{ route('cart.remove', ['id' => $item->id]) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="d-flex flex-column flex-lg-row">
-                <div class="row flex-fill">
-                    <div class="col-sm-1"> 
-                        <img class="img-fluid" src="/imagenes/vape2.jpeg" alt="Imagen 2">
-                    </div>
-                    <div class="col-sm-3">
-                        <h4 class="h5">Hyde Lemon Ice Cream</h4>
-                    </div>
-                    <div class="col-sm-2 py-2">
-                        <span class="badge bg-secondary">2500 puffs</span>
-                        <span class="badge bg-secondary">Sabor a helado de limón</span>
-                    </div>
-                    <div class="col-sm-3 py-2">
-                      <div class="input-group">
-                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" onclick="decrementValue(2)">-</button>
-                        </span>
-                        <input type="number" class="form-control" id="numberInput2" value="1" min="1">
-                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" onclick="incrementValue(2)">+</button>
-                        </span>
-                      </div>
-                      <label for="" class="labelprecio">Precio: $ 30.000</label>
-                    </div>
-                      <div class="col-sm-3">
-                        <div>
-                            <input class="form-check-input custom-checkbox" type="checkbox" value="" aria-label="...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="d-flex flex-column flex-lg-row">
-                <div class="row flex-fill">
-                    <div class="col-sm-1"> <!-- Agrega una columna para la imagen -->
-                        <img class="img-fluid" src="/imagenes/vape3.jpeg" alt="Imagen 3">
-                    </div>
-                    <div class="col-sm-3">
-                        <h4 class="h5">Hyde Blue Razz Ice</h4>
-                    </div>
-                    <div class="col-sm-2 py-2">
-                        <span class="badge bg-secondary">2500 puffs</span>
-                        <span class="badge bg-secondary">Sabor a mora azul helada</span>
-                    </div>
-                    <div class="col-sm-3 py-2">
-                      <div class="input-group">
-                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" onclick="decrementValue(3)">-</button>
-                        </span>
-                        <input type="number" class="form-control" id="numberInput3" value="1" min="1">
-                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" onclick="incrementValue(3)">+</button>
-                        </span>
-                      </div>
-                      <label for="" class="labelprecio">Precio: $ 30.000</label>
-                    </div>
-                      <div class="col-sm-3">
-                        <div>
-                            <input class="form-check-input custom-checkbox" type="checkbox" value="" aria-label="...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3">
-      <div class="card-body">
-        <div class="subtotal">
-        <h4>Subtotal: 3 productos</h4>
-        <h5>$ 90.000</h5>
-      </div>
-      <div class="btnSubtotal">
-        <button type="button" class="btn btn-primary">Comprar</button>
-        <button type="button" class="btn btn-danger">Cancelar</button>
-      </div>
-      </div>
-    </div>
-  </div>
+</div>
+
+</div>
 @endsection

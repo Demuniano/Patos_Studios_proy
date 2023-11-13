@@ -22,7 +22,7 @@
       <a href="{{ route('profile.edit') }}">
           <img src="{{ asset('/images/icons/perfil.png') }}" alt="Icono de perfil" id="icono_perfil">
       </a>
-      <a href="">
+      <a href="{{route('cart.index')}}">
           <img src="{{asset('/images/icons/carrito.png')}}" alt="Icono de carrito de compras" id="icono_carrito">
       </a>
   </div>
