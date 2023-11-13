@@ -140,10 +140,10 @@
           </div>
         </div>
       </section>
-  <div class="container">
+  <div class="container-fluid2">
       <footer class="pie-pagina">
         <div class="grupo-1">
-            <div class="box">
+            <div class="box container">
                 <div class="red-social">
                     <a href="https://www.facebook.com/profile.php?id=100092607999343" class="fa fa-facebook" target="_blank">
                       <img src="{{asset('/images/socialMedia/facebook.png')}}" alt="Icono de facebook">

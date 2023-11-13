@@ -587,17 +587,29 @@ margin-left: 100px;
   border-radius: 0;
 }
 
-.container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 0;
-  padding-left: 0;
-  margin-top: 60px;
+body .container-fluid {   
+  margin-right: 0;   
+  margin-left: 0;   
+  padding-right: 0;   
+  padding-left: 0;   
+  margin-top: 60px; 
 }
 
-.pie-pagina {
-  width: 100%;
+body .container-fluid2 {   
+  margin-right: 0;   
+  margin-left: 0;   
+  padding-right: 0;   
+  padding-left: 68px;   
 }
+/* body .container {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+  box-sizing: border-box;
+} */
+
 
 
 
