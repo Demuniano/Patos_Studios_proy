@@ -595,11 +595,16 @@ body .container-fluid {
   margin-top: 60px; 
 }
 
-body .container-fluid2 {   
+body .container-fluid2 {
+  width: 100%;
   margin-right: 0;   
   margin-left: 0;   
   padding-right: 0;   
-  padding-left: 68px;   
+  padding-left: 0;   
+}
+
+.red-social {
+  padding-left: 68px;  
 }
 /* body .container {
   margin-right: 0;
