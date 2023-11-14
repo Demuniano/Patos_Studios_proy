@@ -45,7 +45,7 @@ class UserCommentController extends Controller
         $coment->idProduct = $productId;
         $coment->save();
         session()->forget('productId');
-        return redirect('/');
+        return redirect()->route('products.show', $productId);
     }
 
     /**

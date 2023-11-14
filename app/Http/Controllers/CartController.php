@@ -52,6 +52,11 @@ class CartController extends Controller
         // Retorna una respuesta JSON indicando el éxito
         return redirect()->route('cart.index')->with('success', 'Cart updated successfully!');
     }
+    public function clearCart()
+    {
+        CartItem::where('user_id', auth()->id())->delete();
+        return redirect()->route('cart.index')->with('success', 'Cart cleared successfully!');
+    }
 }
 
 

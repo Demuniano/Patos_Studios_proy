@@ -13,8 +13,7 @@ use App\Http\Controllers\ComentsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShoplistController;
 use App\Http\Controllers\UserCommentController;
-
-
+use App\Http\Controllers\UserOrderController;
 
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -42,7 +41,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/comentsUser/{id}', [UserCommentController::class,"show"])->name("comentsUser.show");
     Route::post('/comentsUser',[UserCommentController::class,'store'])->name('comentsUser.store');
    
-
+    Route::get('/shoplist', [CartController::class, 'index'])->name('cart.index');
+    
+    Route::post('/add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('cart.add');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+    Route::put('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+    Route::get('/Userorders',[UserOrderController::class,'index'])->name('UserOrders.index');  
+    Route::get('/Saleorders',[UserOrderController::class,'sale'])->name('orders.sale');
+    
+    Route::get('/orders/pdf',[OrdersController::class,'pdf'])->name('orders.pdf');
+    Route::get('/Userorders/pdf/{id}',[UserOrderController::class,'pdf'])->name('UserOrders.pdf');
 
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -74,19 +82,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/orders/pdf',[OrdersController::class,'pdf'])->name('orders.pdf');
-Route::get('/', function () {
-    return view('/home/home');
-});
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/shop', function () {
-    return view('/shoplist/index');
-});
-Route::get('/shoplist', [CartController::class, 'index'])->name('cart.index');
-
-
-Route::post('/add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('cart.add');
-Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
-Route::put('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');    

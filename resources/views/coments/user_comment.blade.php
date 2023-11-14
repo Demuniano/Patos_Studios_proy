@@ -10,7 +10,7 @@
             <label for="descriptionComent">Descripcion: </label>
             <input type="text" name="descriptionComent" id="description" class="form-control mn-3" required >
             <label for="qualificationComent">Calificacion: </label>
-            <input type="number" id="qualification"class="form-control mn-3" name="qualificationComent">
+            <input type="number" id="qualification"class="form-control mn-3" name="qualificationComent" min="1" max="5">
             <button type="submit" class="btn btn-success mt-4">Crear</button>
         </form>
         </div>
