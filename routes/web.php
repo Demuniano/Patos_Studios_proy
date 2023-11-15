@@ -82,7 +82,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
     Route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');
 
-    Route::get('/export',[ReportsController::class,'index'])->name('products.excel');
+    Route::get('/export',[ReportsController::class,'index'])->name('index');
     Route::get('/exports',[ReportsController::class,'export'])->name('export');
 });
 

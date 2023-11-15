@@ -13,7 +13,7 @@ class ReportsController extends Controller
      */
     public function index()
     {
-        return view('productsexcel');
+        return view('products.crud_productos');
     }
 
     public function export(){

@@ -28,7 +28,7 @@
             <label for="image">Imagen: </label>
             <input type="file" name="image" id="image" class="form-control mn-3">
             <button type="submit" class="btn btn-success mt-4">Crear</button>
-            
+            <a href="{{route('export')}}" class="btn btn-success mt-4">Exportar</a>         
         </form>
         </div>
 
