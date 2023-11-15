@@ -84,8 +84,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
     Route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');
 
-    Route::get('/export',[ReportsController::class,'index'])->name('index');
-    Route::get('/exports',[ReportsController::class,'export'])->name('products.export');
+    Route::get('/productexport',[ReportsController::class,'index'])->name('index');
+    Route::get('/productexports',[ReportsController::class,'export'])->name('products.export');
 
     Route::get('/export',[UsersrepController::class,'index'])->name('usersrep');
     Route::get('/exports',[UsersrepController::class,'export'])->name('users.export');
