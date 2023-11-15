@@ -71,7 +71,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/products.edit/{id}', [ProductsController::class, 'edit'])->name('products.edit');
     Route::post('/products',[ProductsController::class,'store'])->name('products.store');    
     Route::put('/products/{id}',[ProductsController::class,'update'])->name('products.update');
-    Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
 
     Route::get('/coments', [ComentsController::class,"index"])->name("coments.index");
     Route::delete('/coments/{id}', [ComentsController::class,"destroy"])->name("coments.destroy");

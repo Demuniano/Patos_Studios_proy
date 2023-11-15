@@ -1,5 +1,6 @@
 @extends('layout.template')
 @section('content')
+@include('layout.telegram-button')
 <html lang="en">
   <div class="container-fluid">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
