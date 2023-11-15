@@ -14,6 +14,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShoplistController;
 use App\Http\Controllers\UserCommentController;
 use App\Http\Controllers\UserOrderController;
+use App\Http\Controllers\ReportsController;
+
+
 
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -78,6 +81,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/coments.edit/{id}', [ComentsController::class, 'edit'])->name('coments.edit');
     Route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
     Route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');
+
+    Route::get('/export',[ReportsController::class,'index'])->name('products.excel');
+    Route::get('/exports',[ReportsController::class,'export'])->name('export');
 });
 
 require __DIR__.'/auth.php';
