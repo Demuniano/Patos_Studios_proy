@@ -22,6 +22,7 @@
             <label for="passwordField">Contraseña: </label>
             <input type="password" id="passwordField"class="form-control mn-3" name="passw" required>
             <button type="submit" class="btn btn-success mt-4">Guardar</button>
+            <a href="{{route('users.export')}}" class="btn btn-warning mt-4">Exportar</a>    
         </form>
         </div>
     </div>
