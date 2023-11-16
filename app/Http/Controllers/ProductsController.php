@@ -16,9 +16,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products=Product::all();
-        $totalVapes = Product::where('flavor', 'vape')->sum('quantity');
-        return view("products.crud_productos",compact("products","totalVapes"));
-        
+        return view("products.crud_productos",compact("products"));  
     }
 
     public function store(Request $request)

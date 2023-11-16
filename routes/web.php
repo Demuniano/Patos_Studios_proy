@@ -16,6 +16,8 @@ use App\Http\Controllers\UserCommentController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UsersrepController;
+use App\Http\Controllers\GraphsController;
+
 
 
 
@@ -89,6 +91,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/export',[UsersrepController::class,'index'])->name('usersrep');
     Route::get('/exports',[UsersrepController::class,'export'])->name('users.export');
+
+    Route::get('/vapes-chart', 'GraphsController@vapesChart')->name('vapes.chart');
 });
 
 require __DIR__.'/auth.php';

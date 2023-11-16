@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -31,11 +32,36 @@
             <a href="{{route('products.export')}}" class="btn btn-warning mt-4">Exportar</a>         
         </form>
         </div>
+        <canvas id="barChart" width="400" height="400"></canvas>
 
-        <div id="app">
-            <canvas id="myChart" width="400" height="400"></canvas>
-        </div>
+    <script>
+        // Datos de ejemplo
+        const nombresProductos = {!! json_encode($products->pluck('name')) !!}; // Obtén los nombres de los productos desde tu controlador
+        const cantidades = {!! json_encode($products->pluck('quantity')) !!}; // Obtén las cantidades desde tu controlador
 
+        // Configuración del gráfico
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: nombresProductos,
+                datasets: [{
+                    label: 'Cantidad',
+                    data: cantidades,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)', // Color de las barras
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
         <div class="row">
             <div class="col">
                 <table class="table table-dark table-sm mt-4 mx-auto table-responsive">
@@ -78,67 +104,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row">
-                <div class="col">
-                    <canvas id="myChart" width="400" height="400"></canvas>
-                </div>
-            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            mounted() {
-                this.createChart();
-            },
-            methods: {
-                createChart() {
-                    const ctx = document.getElementById('myChart').getContext('2d');
-                    const totalVapes = {!! json_encode($totalVapes) !!};
-                    const products = {!! json_encode($products) !!};
-
-                    const vapeProducts = products.filter(product => product.flavor === 'vape');
-                    const vapeQuantities = vapeProducts.map(product => product.quantity);
-                    const vapeNames = vapeProducts.map(product => product.name);
-
-                    const vapePercentages = vapeQuantities.map(quantity => ((quantity / totalVapes) * 100).toFixed(2));
-
-                    new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: vapeNames,
-                            datasets: [{
-                                label: 'Porcentaje de Vapes',
-                                data: vapePercentages,
-                                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                                borderColor: 'rgba(54, 162, 235, 1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                    title: {
-                                        display: true,
-                                        text: 'Porcentaje'
-                                    }
-                                },
-                                x: {
-                                    title: {
-                                        display: true,
-                                        text: 'Vapes'
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    </script>
 </body>
 </html>
 
