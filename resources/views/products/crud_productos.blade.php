@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -28,10 +29,10 @@
             <label for="image">Imagen: </label>
             <input type="file" name="image" id="image" class="form-control mn-3">
             <button type="submit" class="btn btn-success mt-4">Crear</button>
-            
+            <a href="{{route('products.export')}}" class="btn btn-warning mt-4">Exportar</a> 
+            <a href="{{ route('products.charrt') }}" class="btn btn-primary mt-4">Ver Gráfico de Cantidad</a>        
         </form>
         </div>
-
         <div class="row">
             <div class="col">
                 <table class="table table-dark table-sm mt-4 mx-auto table-responsive">

@@ -14,6 +14,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShoplistController;
 use App\Http\Controllers\UserCommentController;
 use App\Http\Controllers\UserOrderController;
+use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\UsersrepController;
+use App\Http\Controllers\GraphsController;
+
+
+
+
 
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -77,6 +84,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/coments.edit/{id}', [ComentsController::class, 'edit'])->name('coments.edit');
     Route::post('/coments',[ComentsController::class,'store'])->name('coments.store');
     Route::put('/coments/{id}',[ComentsController::class,'update'])->name('coments.update');
+
+    Route::get('/productexport',[ReportsController::class,'index'])->name('index');
+    Route::get('/productexports',[ReportsController::class,'export'])->name('products.export');
+
+    Route::get('/export',[UsersrepController::class,'index'])->name('usersrep');
+    Route::get('/exports',[UsersrepController::class,'export'])->name('users.export');
+
+    Route::get('/chart', [ProductsController::class,'showChart'])->name('products.charrt');
 });
 
 require __DIR__.'/auth.php';
