@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::post('/details',[DetailsController::class,'store'])->name('details.store');
-    Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
+ 
     Route::post('/orders',[OrdersController::class,'store'])->name('orders.store');
     Route::get('/comentsUser/{id}', [UserCommentController::class,"show"])->name("comentsUser.show");
     Route::post('/comentsUser',[UserCommentController::class,'store'])->name('comentsUser.store');
@@ -99,3 +99,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
+Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
