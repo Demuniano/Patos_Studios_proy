@@ -31,23 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/details',[DetailsController::class,'index'])->name('details.index');
     Route::post('/details',[DetailsController::class,'store'])->name('details.store');
-    Route::delete('/details/{id}',[DetailsController::class,'destroy'])->name('details.destroy');
-    Route::put('/details/{id}',[DetailsController::class,'update'])->name('details.update');
-    Route::get('/details_edit/{id}',[DetailsController::class,'edit'])->name('details.edit');
-
     Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
-
-    Route::get('/orders',[OrdersController::class,'index'])->name('orders.index');
     Route::post('/orders',[OrdersController::class,'store'])->name('orders.store');
-    Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('orders.destroy');
-    Route::put('/orders/{id}',[OrdersController::class,'update'])->name('orders.update');
-    Route::get('/orders_edit/{id}',[OrdersController::class,'edit'])->name('orders.edit');
-
     Route::get('/comentsUser/{id}', [UserCommentController::class,"show"])->name("comentsUser.show");
     Route::post('/comentsUser',[UserCommentController::class,'store'])->name('comentsUser.store');
-   
     Route::get('/shoplist', [CartController::class, 'index'])->name('cart.index');
     
     Route::post('/add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('cart.add');
@@ -92,6 +80,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/exports',[UsersrepController::class,'export'])->name('users.export');
 
     Route::get('/chart', [ProductsController::class,'showChart'])->name('products.charrt');
+
+    Route::get('/orders_edit/{id}',[OrdersController::class,'edit'])->name('orders.edit');
+    Route::delete('/orders/{id}',[OrdersController::class,'destroy'])->name('orders.destroy');
+    Route::put('/orders/{id}',[OrdersController::class,'update'])->name('orders.update');
+
+    Route::delete('/details/{id}',[DetailsController::class,'destroy'])->name('details.destroy');
+    Route::put('/details/{id}',[DetailsController::class,'update'])->name('details.update');
+    Route::get('/details_edit/{id}',[DetailsController::class,'edit'])->name('details.edit');
+    Route::get('/details',[DetailsController::class,'index'])->name('details.index');
+
+    Route::get('/orders',[OrdersController::class,'index'])->name('orders.index');
+  
 });
 
 require __DIR__.'/auth.php';

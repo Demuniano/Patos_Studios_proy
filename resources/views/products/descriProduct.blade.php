@@ -22,7 +22,6 @@
                         <label for="cant">Cantidad:</label>
                         <input type="number" id="cant" name="quantity" class="mb-3" value="1" min="1" max="50">
                         <div>
-                            <button type="submit" name="action" value="buy" class="btn btn-primary btn-sm mb-3">Comprar</button>
                             <button type="submit" name="action" value="add_to_cart" class="btn btn-success btn-sm mb-3">Añadir a carrito</button>
                         </div>
                     </form>
