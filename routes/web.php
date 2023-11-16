@@ -92,7 +92,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/export',[UsersrepController::class,'index'])->name('usersrep');
     Route::get('/exports',[UsersrepController::class,'export'])->name('users.export');
 
-    Route::get('/vapes-chart', 'GraphsController@vapesChart')->name('vapes.chart');
+    Route::get('/chart', [ProductsController::class,'showChart'])->name('products.charrt');
 });
 
 require __DIR__.'/auth.php';

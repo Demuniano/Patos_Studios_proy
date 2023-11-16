@@ -141,5 +141,21 @@ class ProductsController extends Controller
         // Redirige al usuario a la página del carrito (ajusta según tus rutas)
         return redirect()->route('dashboard')->with('success', 'Product added to cart successfully!');
     }
+
+    public function showChart()
+    {
+        $products = Product::all();
+
+        // Calcular la suma total de cantidades
+        $totalQuantity = $products->sum('quantity');
+
+        // Calcular los porcentajes de la cantidad para cada producto
+        $percentages = $products->map(function ($product) use ($totalQuantity) {
+            return ($product->quantity / $totalQuantity) * 100;
+        });
+
+        return view('products.chart')->with('products', $products)
+                                    ->with('percentages', $percentages);
+    }
     
 }
